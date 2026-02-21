@@ -1,0 +1,10 @@
+# Ignore everything
+*
+
+# But do NOT ignore these
+!README.md
+!pom.xml
+!target/
+
+# Also allow .gitignore itself
+!.gitignore
