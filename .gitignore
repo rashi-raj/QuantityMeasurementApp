@@ -5,6 +5,7 @@
 !README.md
 !pom.xml
 !target/
+/src/
 
 # Also allow .gitignore itself
 !.gitignore
