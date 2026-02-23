@@ -92,4 +92,27 @@ Output: true
   - Input validation for null, NaN, and infinite values
   - Overloaded conversion methods for flexibility
  
-[UC5-Length Unit Conversion](https://github.com/rashi-raj/QuantityMeasurementApp/tree/feature/UC4-UnitConversion/src)
+[UC5-Length Unit Conversion](https://github.com/rashi-raj/QuantityMeasurementApp/tree/feature/UC5-UnitConversion/src)
+
+---
+
+### 📅 UC6: Addition of Two Length Units (Same Category)
+
+- Enables addition of two lengths in the same measurement category (length), returning the result in the unit of the first operand. Supports same-unit and cross-unit additions with automatic conversion and preserves immutability.
+- Key Concepts
+  - Same-unit and cross-unit addition
+  - Conversion to target unit (first operand)
+  - Validation for nulls, zero, negative, NaN, and infinite values
+  - Commutativity: add(A, B) = add(B, A)
+  - Floating-point precision handling
+
+Example:
+Input: 1.0 ft + 2.0 ft → Output: 3.0 ft
+Input: 1.0 ft + 12.0 in → Output: 2.0 ft
+Input: 12.0 in + 1.0 ft → Output: 24.0 in
+Input: 1.0 yd + 3.0 ft → Output: 2.0 yd
+Input: 2.54 cm + 1.0 in → Output: ~5.08 cm
+
+[UC6-Addition of Length Units](https://github.com/rashi-raj/QuantityMeasurementApp/tree/feature/UC6-UnitConversion/src)
+
+---
