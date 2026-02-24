@@ -222,3 +222,47 @@ Refactored the system to use a single generic class Quantity<U extends IMeasurab
   - Quantity(1.0, LITRE).add(Quantity(1000.0, MILLILITRE), MILLILITRE) → 2000.0
 
 [UC11-Volume Measurement](https://github.com/rashi-raj/QuantityMeasurementApp/tree/feature/UC11-VolumeEquality/src)
+
+---
+
+### 📅 UC12: Quantity Subtraction and Division
+
+- Description: UC12 extends the Quantity Measurement App by adding subtraction and division operations to the generic Quantity<T> class. These operations work across all measurement categories (length, weight, volume) while maintaining strict type safety.
+
+- Features:
+  - Subtraction with implicit and explicit target units
+  - Cross-unit operations within the same category
+  - Division returns a unitless ratio (double)
+  - Cross-category operations prevented by generics
+  - Null validation and division-by-zero handling
+  - Immutability and precision maintained
+
+- Example:
+  - Quantity(10.0, FEET).subtract(Quantity(6.0, INCH)) → 9.5 FEET
+  - Quantity(5.0, LITRE).subtract(Quantity(2.0, LITRE)) → 3.0 LITRE
+  - Quantity(10.0, FEET).divide(Quantity(2.0, FEET)) → 5.0
+
+[UC12-Subtraction and Division](https://github.com/rashi-raj/QuantityMeasurementApp/tree/feature/UC12-SubtractionDivision/src)
+
+---
+
+### 📅 UC13: Centralized Arithmetic Operations Using Enum Strategy
+
+- Description: UC14 refactors the Quantity Measurement App by introducing an ArithmeticOperation enum (ADD, SUBTRACT, DIVIDE) to centralize arithmetic behavior. All operations now delegate to a single private helper method, eliminating duplicate validation and conversion logic while preserving existing functionality.
+
+- Implementation:
+  - ArithmeticOperation enum handles operation-specific computation.
+  - Private helper method performs validation, base unit conversion, enum dispatch, and result conversion.
+  - Add and subtract results are rounded to two decimals.
+  - Divide returns a dimensionless raw double value.
+  - No changes required to existing unit enums (LengthUnit, WeightUnit, VolumeUnit).
+  - Full backward compatibility with UC12 maintained.
+
+- Example:
+  - Quantity(10.0, FEET).add(Quantity(5.0, FEET)) → 15.00 FEET
+  - Quantity(10.0, FEET).subtract(Quantity(5.0, FEET)) → 5.00 FEET
+  - Quantity(10.0, FEET).divide(Quantity(5.0, FEET)) → 2.0
+
+[UC13-Centralized Arithmetic Operations](https://github.com/rashi-raj/QuantityMeasurementApp/tree/feature/UC13-CentralizedArithmetic/src)
+
+---
